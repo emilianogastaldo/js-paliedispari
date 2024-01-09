@@ -53,3 +53,26 @@ function randomNumber(min, max) {
     return Math.floor(Math.random() * (max - min + 1)) + min;
 }
 
+const computerNumber = randomNumber(1, 5);
+
+const sumNumbers = playerNumber + computerNumber;
+
+console.log('player: ' + playerNumber, 'PC: ' + computerNumber, 'somma: ' + sumNumbers);
+/**
+ * This function tells you in n is an odd number or not
+ * @param {number} n 
+ * @returns true | false
+ */
+function isOdd(n) {
+    return n % 2 === 1;
+}
+
+console.log(isOdd(sumNumbers));
+
+//Dichiaro chi ha vinto
+let message = 'Ha vinto il computer'
+
+if (!isOdd(sumNumbers) && playerDecision === 'pari' || isOdd(sumNumbers) && playerDecision === 'dispari') {
+    message = 'Ha vinto il player'
+}
+console.log(message);
