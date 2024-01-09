@@ -67,12 +67,25 @@ function isOdd(n) {
     return n % 2 === 1;
 }
 
-console.log(isOdd(sumNumbers));
+/**
+ * This function tells you if your number is even or odd
+ * @param {number} n 
+ * @returns string
+ */
+function isEvenOrOdd(n) {
+    let result = 'pari';
+    if (isOdd(n)) result = 'dispari';
+    return result;
+}
+console.log(isEvenOrOdd(sumNumbers));
 
 //Dichiaro chi ha vinto
 let message = 'Ha vinto il computer'
-
+if (isEvenOrOdd(sumNumbers) === playerDecision) message = 'Ha vinto il player';
+/*
+Prima interazione che avevo creato:
 if (!isOdd(sumNumbers) && playerDecision === 'pari' || isOdd(sumNumbers) && playerDecision === 'dispari') {
     message = 'Ha vinto il player'
 }
+*/
 console.log(message);
