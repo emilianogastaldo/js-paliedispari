@@ -15,12 +15,22 @@
 </head>
 
 <body>
-    <form id="form-palindrome" class="p-5">
-        <label for="palindrome">Controlla se la tua parola è palindroma</label>
-        <input type="text" id="palindrome" placeholder="Scrivi qui">
-        <button>Controlla!</button>
-        <p id="result-palindrome"></p>
-    </form>
+    <div class="container">
+        <div class="row mt-5">
+            <div class="col-6">
+                <div class="card">
+                    <h5 class="card-header">PALINDROMA</h5>
+                    <form id="form-palindrome" class="card-body">
+                        <label for="palindrome" class="form-label">Controlla se la tua parola è palindroma</label>
+                        <input type="text" class="form-control mb-3" id="palindrome" placeholder="Scrivi qui" required>
+                        <button class="btn btn-primary mb-3">Controlla!</button>
+                        <p id="result-palindrome" class="alert"></p>
+                    </form>
+                </div>
+            </div>
+
+        </div>
+    </div>
 </body>
 
 </html>

@@ -13,14 +13,17 @@
  * @returns true or false
  */
 function isPalindrome(word) {
+    //confermo la parola in minuscolo
+    word = word.toLowerCase();
     //flag per sapere se è palindroma o meno
     let isValid = true;
 
     //Controllo le lettere
     for (let i = 0; i < word.length / 2 && isValid; i++) {
         if (word.charAt(i) !== word.charAt(word.length - 1 - i)) isValid = false;
+        console.log(word.charAt(i), word.charAt(word.length - 1 - i), word.charAt(i) !== word.charAt(word.length - 1 - i));
     };
-    console.log('lunghezza' + word.length);
+
     return isValid;
 };
 
@@ -37,14 +40,18 @@ formPalindrome.addEventListener('submit', function (event) {
     let messagePalindrome = 'La tua parola NON è palindroma!'
 
     //Modifico il messaggio se la parola è palindroma
-    if (isPalindrome(inputPalindrome)) messagePalindrome = 'La tua parola è palindroma';
+    if (isPalindrome(inputPalindrome)) {
+        messagePalindrome = 'La tua parola è palindroma';
+        resultPalindorm.classList.add("alert-success");
+        resultPalindorm.classList.remove("alert-danger");
+    } else {
+        resultPalindorm.classList.add("alert-danger");
+        resultPalindorm.classList.remove("alert-success");
+    }
 
     //Stampo il messaggio in pagina
     resultPalindorm.innerText = messagePalindrome;
 });
-// const input = prompt('Dammi una parola e ti dirò se è palindroma')
-
-// console.log(isPalindrome(input));
 
 
 /*
