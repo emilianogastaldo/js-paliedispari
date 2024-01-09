@@ -4,7 +4,7 @@ Esercizio di oggi: Paliedispari
 
 nome repo: js-paliedispari  (non è un errore, è così)
 
-Palidroma
+Palindroma
 
 Chiedere all’utente di inserire una parola (con un prompt)
 Creare una funzione per capire se la parola inserita è palindroma
