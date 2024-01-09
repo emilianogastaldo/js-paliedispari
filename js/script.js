@@ -33,10 +33,23 @@ function isPalindrome(word) {
     Pari e dispari:
     -creo una funzione per il numero randomico
     -prendo il numero dell'utente e la decisione dell'utente (pari o dispari)
-    -genero il numero randomico
+    -genero il numero randomico (funzione)
     -sommo i due numeri
-    -controllo se è pari o dispari
+    -controllo se è pari o dispari (funzione)
     -controllo la scelta del giocatore
     -dichiaro chi ha vinto
 */
+
+const playerDecision = 'dispari';
+const playerNumber = 5;
+
+/**
+ * This function, given a minimum number and a maximum number, create a ramdom number.
+ * @param {number} min 
+ * @param {number} max 
+ * @returns number
+ */
+function randomNumber(min, max) {
+    return Math.floor(Math.random() * (max - min + 1)) + min;
+}
 
