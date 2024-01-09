@@ -21,7 +21,6 @@ function isPalindrome(word) {
     //Controllo le lettere
     for (let i = 0; i < word.length / 2 && isValid; i++) {
         if (word.charAt(i) !== word.charAt(word.length - 1 - i)) isValid = false;
-        console.log(word.charAt(i), word.charAt(word.length - 1 - i), word.charAt(i) !== word.charAt(word.length - 1 - i));
     };
 
     return isValid;
@@ -65,9 +64,6 @@ formPalindrome.addEventListener('submit', function (event) {
     -dichiaro chi ha vinto
 */
 
-const playerDecision = 'dispari';
-const playerNumber = 5;
-
 /**
  * This function, given a minimum number and a maximum number, create a ramdom number.
  * @param {number} min 
@@ -78,11 +74,6 @@ function randomNumber(min, max) {
     return Math.floor(Math.random() * (max - min + 1)) + min;
 }
 
-const computerNumber = randomNumber(1, 5);
-
-const sumNumbers = playerNumber + computerNumber;
-
-// console.log('player: ' + playerNumber, 'PC: ' + computerNumber, 'somma: ' + sumNumbers);
 /**
  * This function tells you in n is an odd number or not
  * @param {number} n 
@@ -98,19 +89,50 @@ function isOdd(n) {
  * @returns string
  */
 function isEvenOrOdd(n) {
-    let result = 'pari';
-    if (isOdd(n)) result = 'dispari';
+    let result = 'even';
+    if (isOdd(n)) result = 'odd';
     return result;
 }
-// console.log(isEvenOrOdd(sumNumbers));
 
-//Dichiaro chi ha vinto
-let message = 'Ha vinto il computer'
-if (isEvenOrOdd(sumNumbers) === playerDecision) message = 'Ha vinto il player';
-/*
-Prima interazione che avevo creato:
-if (!isOdd(sumNumbers) && playerDecision === 'pari' || isOdd(sumNumbers) && playerDecision === 'dispari') {
-    message = 'Ha vinto il player'
-}
-*/
-// console.log(message);
+
+
+
+
+
+const formEvenOdd = document.getElementById('form-even-odd');
+const resultEvenOdd = document.getElementById('result-even-odd');
+formEvenOdd.addEventListener('submit', function (event) {
+    event.preventDefault();
+    //Recupero la decisione del giocatore se pari (even) o dispari (odd)
+    const playerDecision = document.getElementById('select-even-odd').value;
+
+    //recupero il numero del giocatore
+    const playerNumber = parseInt(document.getElementById('number-even-odd').value);
+
+    //Creo il numero ramdomico per il computer
+    const computerNumber = randomNumber(1, 5);
+
+    //sommo i due valori
+    const sumNumbers = playerNumber + computerNumber;
+
+    //Dichiaro chi ha vinto
+    let decisionMessage = '';
+    if (playerDecision === 'even') {
+        decisionMessage = 'pari';
+    } else {
+        decisionMessage = 'dispari';
+    };
+
+    let message = `Il giocatore ha deciso ${decisionMessage} e ha lanciato ${playerNumber}<br>
+    Il computer ha lanciato ${computerNumber}.<br>
+    La somma fa ${sumNumbers}, quindi `;
+
+    if (isEvenOrOdd(sumNumbers) === playerDecision) {
+        message += 'ha vinto il giocatore'
+    } else {
+        message += 'ha vinto il computer';
+    }
+
+    resultEvenOdd.innerHTML = message;
+});
+
