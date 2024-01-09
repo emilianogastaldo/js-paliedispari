@@ -28,7 +28,30 @@
                     </form>
                 </div>
             </div>
+            <div class="col-6">
+                <div class="card">
+                    <h5 class="card-header">PARI O DISPARI</h5>
+                    <form id="form-even-odd" class="card-body row justify-content-evenly">
+                        <div class="col-5">
+                            <label for="number-even-odd" class="form-label">Scegli un numero tra 1 e 5</label>
+                            <input type="number" class="form-control mb-3" id="number-even-odd" min="1" max="5">
+                        </div>
+                        <div class="col-5">
 
+                            <label for="select-even-odd" class="form-label">Scegli se pari o dispari</label>
+                            <select id="select-even-odd" class="form-select mb-3">
+                                <option value="">Pari</option>
+                                <option value="">Dispari</option>
+                            </select>
+                        </div>
+                        <div class="col-6 text-center">
+
+                            <button class="btn btn-primary mb-3">Gioca!</button>
+                            <p id="result-palindrome" class="alert"></p>
+                        </div>
+                    </form>
+                </div>
+            </div>
         </div>
     </div>
 </body>
