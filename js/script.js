@@ -7,7 +7,11 @@
     -se qualche lettera non coincide trasformo la flag di validazione
     -ritorno la flag
 */
-/** */
+/**
+ * This function tells you if the word is palindrome or not
+ * @param {string} word 
+ * @returns true or false
+ */
 function isPalindrome(word) {
     //flag per sapere se è palindroma o meno
     let isValid = false;
