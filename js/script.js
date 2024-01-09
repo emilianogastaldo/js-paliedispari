@@ -14,16 +14,34 @@
  */
 function isPalindrome(word) {
     //flag per sapere se è palindroma o meno
-    let isValid = false;
+    let isValid = true;
 
     //Controllo le lettere
-    for (let i = 0; i < Math.floor(word.length / 2) && !isValid; i++) {
-        // if (word.charAt(i) === word.charAt(word.length - 1 - i)) isValid = true;
-        isValid = word.charAt(i) === word.charAt(word.length - 1 - i);
+    for (let i = 0; i < word.length / 2 && isValid; i++) {
+        if (word.charAt(i) !== word.charAt(word.length - 1 - i)) isValid = false;
     };
-
+    console.log('lunghezza' + word.length);
     return isValid;
 };
+
+const formPalindrome = document.getElementById('form-palindrome');
+const resultPalindorm = document.getElementById('result-palindrome');
+formPalindrome.addEventListener('submit', function (event) {
+    //Sistemo il form così che non ricarichi la pagina
+    event.preventDefault();
+
+    //Recupero il valore dell'input
+    const inputPalindrome = document.getElementById('palindrome').value;
+
+    //Creo il messaggio che poi stamperò in pagina
+    let messagePalindrome = 'La tua parola NON è palindroma!'
+
+    //Modifico il messaggio se la parola è palindroma
+    if (isPalindrome(inputPalindrome)) messagePalindrome = 'La tua parola è palindroma';
+
+    //Stampo il messaggio in pagina
+    resultPalindorm.innerText = messagePalindrome;
+});
 // const input = prompt('Dammi una parola e ti dirò se è palindroma')
 
 // console.log(isPalindrome(input));
@@ -57,7 +75,7 @@ const computerNumber = randomNumber(1, 5);
 
 const sumNumbers = playerNumber + computerNumber;
 
-console.log('player: ' + playerNumber, 'PC: ' + computerNumber, 'somma: ' + sumNumbers);
+// console.log('player: ' + playerNumber, 'PC: ' + computerNumber, 'somma: ' + sumNumbers);
 /**
  * This function tells you in n is an odd number or not
  * @param {number} n 
@@ -77,7 +95,7 @@ function isEvenOrOdd(n) {
     if (isOdd(n)) result = 'dispari';
     return result;
 }
-console.log(isEvenOrOdd(sumNumbers));
+// console.log(isEvenOrOdd(sumNumbers));
 
 //Dichiaro chi ha vinto
 let message = 'Ha vinto il computer'
@@ -88,4 +106,4 @@ if (!isOdd(sumNumbers) && playerDecision === 'pari' || isOdd(sumNumbers) && play
     message = 'Ha vinto il player'
 }
 */
-console.log(message);
+// console.log(message);
