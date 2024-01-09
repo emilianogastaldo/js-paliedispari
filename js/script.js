@@ -21,8 +21,22 @@ function isPalindrome(word) {
         // if (word.charAt(i) === word.charAt(word.length - 1 - i)) isValid = true;
         isValid = word.charAt(i) === word.charAt(word.length - 1 - i);
     };
+
     return isValid;
 };
-const input = prompt('Dammi una parola e ti dirò se è palindroma')
+// const input = prompt('Dammi una parola e ti dirò se è palindroma')
 
-console.log(isPalindrome(input));
+// console.log(isPalindrome(input));
+
+
+/*
+    Pari e dispari:
+    -creo una funzione per il numero randomico
+    -prendo il numero dell'utente e la decisione dell'utente (pari o dispari)
+    -genero il numero randomico
+    -sommo i due numeri
+    -controllo se è pari o dispari
+    -controllo la scelta del giocatore
+    -dichiaro chi ha vinto
+*/
+
