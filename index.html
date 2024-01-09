@@ -6,12 +6,21 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 
+    <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/css/bootstrap.css'
+        integrity='sha512-r0fo0kMK8myZfuKWk9b6yY8azUnHCPhgNz/uWDl2rtMdWJlk7gmd9socvGZdZzICwAkMgfTkVrplDahQ07Gi0A=='
+        crossorigin='anonymous' />
+
     <link rel="stylesheet" href="css/style.css">
     <script defer src="js/script.js"></script>
 </head>
 
 <body>
-
+    <form id="form-palindrome" class="p-5">
+        <label for="palindrome">Controlla se la tua parola è palindroma</label>
+        <input type="text" id="palindrome" placeholder="Scrivi qui">
+        <button>Controlla!</button>
+        <p id="result-palindrome"></p>
+    </form>
 </body>
 
 </html>
