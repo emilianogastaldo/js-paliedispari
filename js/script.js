@@ -13,7 +13,7 @@
  * @returns true or false
  */
 function isPalindrome(word) {
-    //confermo la parola in minuscolo
+    //trasformo tutta la parola in minuscolo
     word = word.toLowerCase();
     //flag per sapere se è palindroma o meno
     let isValid = true;
@@ -26,20 +26,32 @@ function isPalindrome(word) {
     return isValid;
 };
 
+function isPaliFast(word) {
+    //trasformo tutta la parola in minuscolo
+    word = word.toLowerCase();
+
+    //creo la parola al rovescio
+    const reverseWord = word.spli('').reverse().join('');
+
+    //ritorno il confronto tra le due parole
+    return reverseWord === word;
+}
+
 const formPalindrome = document.getElementById('form-palindrome');
+const inputPalindrome = document.getElementById('palindrome');
 const resultPalindorm = document.getElementById('result-palindrome');
 formPalindrome.addEventListener('submit', function (event) {
     //Sistemo il form così che non ricarichi la pagina
     event.preventDefault();
 
     //Recupero il valore dell'input
-    const inputPalindrome = document.getElementById('palindrome').value;
+    const valuePalindrome = inputPalindrome.value;
 
     //Creo il messaggio che poi stamperò in pagina
-    let messagePalindrome = 'La tua parola NON è palindroma!'
+    let messagePalindrome = 'La tua parola NON è palindroma!';
 
     //Modifico il messaggio se la parola è palindroma
-    if (isPalindrome(inputPalindrome)) {
+    if (isPalindrome(valuePalindrome)) {
         messagePalindrome = 'La tua parola è palindroma';
         resultPalindorm.classList.add("alert-success");
         resultPalindorm.classList.remove("alert-danger");
@@ -100,14 +112,16 @@ function isEvenOrOdd(n) {
 
 
 const formEvenOdd = document.getElementById('form-even-odd');
+const inputNumber = document.getElementById('number-even-odd')
+const selectField = document.getElementById('select-even-odd')
 const resultEvenOdd = document.getElementById('result-even-odd');
 formEvenOdd.addEventListener('submit', function (event) {
     event.preventDefault();
     //Recupero la decisione del giocatore se pari (even) o dispari (odd)
-    const playerDecision = document.getElementById('select-even-odd').value;
+    const playerDecision = selectField.value;
 
     //recupero il numero del giocatore
-    const playerNumber = parseInt(document.getElementById('number-even-odd').value);
+    const playerNumber = parseInt(inputNumber.value);
 
     //Creo il numero ramdomico per il computer
     const computerNumber = randomNumber(1, 5);
@@ -116,23 +130,12 @@ formEvenOdd.addEventListener('submit', function (event) {
     const sumNumbers = playerNumber + computerNumber;
 
     //Dichiaro chi ha vinto
-    let decisionMessage = '';
-    if (playerDecision === 'even') {
-        decisionMessage = 'pari';
-    } else {
-        decisionMessage = 'dispari';
-    };
+    const winner = isEvenOrOdd(sumNumbers) === playerDecision ? 'giocatore' : 'computer';
+    const decisionMessage = playerDecision === 'even' ? 'pari' : 'dispari';
 
     let message = `Il giocatore ha deciso ${decisionMessage} e ha lanciato ${playerNumber}<br>
     Il computer ha lanciato ${computerNumber}.<br>
-    La somma fa ${sumNumbers}, quindi `;
-
-    if (isEvenOrOdd(sumNumbers) === playerDecision) {
-        message += 'ha vinto il giocatore'
-    } else {
-        message += 'ha vinto il computer';
-    }
-
+    La somma fa ${sumNumbers}, quindi ha vinto il ${winner}`;
     resultEvenOdd.innerHTML = message;
 });
 
