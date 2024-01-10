@@ -112,8 +112,8 @@ function isEvenOrOdd(n) {
 
 
 const formEvenOdd = document.getElementById('form-even-odd');
-const inputNumber = document.getElementById('number-even-odd')
-const selectField = document.getElementById('select-even-odd')
+const inputNumber = document.getElementById('number-even-odd');
+const selectField = document.getElementById('select-even-odd');
 const resultEvenOdd = document.getElementById('result-even-odd');
 formEvenOdd.addEventListener('submit', function (event) {
     event.preventDefault();
